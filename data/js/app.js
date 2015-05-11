@@ -1,23 +1,21 @@
-'use strict';
+(function() {
+  'use strict';
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function getSplash (results) {
-  var images = results.images;
-  
-  if (images.length === 0) {
-    return;
+  function getSplash(imageUrl) {
+    var newTabBox = document.getElementById('newtab-scrollbox');
+    if (newTabBox) {
+      newTabBox.style.backgroundRepeat = 'no-repeat';
+      newTabBox.style.backgroundSize = 'cover';
+      newTabBox.style.backgroundPosition = 'center center';
+      newTabBox.style.backgroundImage = 'url(' + imageUrl + ')';
+    } else {
+      // XXX: We could not get newTabBox for first tab after Firefox start-up.
+      // So we always failed to show splash for the first tab.
+      console.error('no newTabBox');
+    }
   }
-  var index = getRandomInt(0, images.length);
-  var imgUrl = images[index].url;
-  var newTabBox = document.getElementById('newtab-scrollbox');
-  newTabBox.style.backgroundRepeat = 'no-repeat';
-  newTabBox.style.backgroundSize = 'cover';
-  newTabBox.style.backgroundPosition = 'center center';
-  newTabBox.style.backgroundImage = 'url(' + imgUrl + ')';
 
-}
-
-getSplash(self.options.result);
+  window.setTimeout(function() {
+    getSplash(self.options.imageUrl);
+  });
+}());
