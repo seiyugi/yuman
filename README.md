@@ -26,3 +26,6 @@ Yuman is a Firefox Add-on for displaying beautiful splash in the background of y
   ```
 
   You'll get a file named `yuman.xpi`. Drag it into Firefox to install it.
+
+### Collect pictures from https://unsplash.com/
+  If you want to contribute your amazing pictures to yuman, please contact us debuguy@debuguy.org.
