@@ -1,5 +1,7 @@
 ## Yuman
 
+[![Join the chat at https://gitter.im/seiyugi/yuman](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/seiyugi/yuman?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Yuman is a Firefox Add-on for displaying beautiful splash in the background of your Firefox new tab
 
 
