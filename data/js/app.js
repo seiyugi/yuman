@@ -2,7 +2,8 @@
   'use strict';
 
   function getSplash(imageUrl) {
-    var newTabBox = document.getElementById('newtab-scrollbox');
+    var newTabBox = document.getElementById('newtab-scrollbox') ? document.getElementById('newtab-scrollbox') : document.getElementById('newtab-vertical-margin');
+
     if (newTabBox) {
       newTabBox.style.backgroundRepeat = 'no-repeat';
       newTabBox.style.backgroundSize = 'cover';
