@@ -1,11 +1,11 @@
 {
-  "name": "yuman",
-  "title": "yuman",
+  "name": "Yuman",
+  "title": "Yuman",
   "id": "jid1-swAiMEFwLPmaAQ",
-  "description": "yuman collects high-resolution photos from 'unsplash.com' and makes your new tabs more beautiful.",
+  "description": "Yuman collects high-resolution photos from 'unsplash.com' and makes your new tabs more beautiful.",
   "author": "seiyugi",
   "email": "debuguy@debuguy.org",
   "license": "MPL 2.0",
-  "version": "1.3",
+  "version": "2.0",
   "icon": "icon64.png"
 }

@@ -4,30 +4,31 @@
 
 Yuman is a Firefox Add-on for displaying beautiful splash in the background of your Firefox new tab
 
+### Quick Start Guide for Development
 
-### Development Environment Setup
+* Please follow instruction to [install web-ext](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Getting_started_with_web-ext)
 
-[Please follow this guidline to install Firefox Add-on SDK](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation)
-
-
-### Quick Start for Development
-
-* Clone this project `git clone git@github.com:seiyugi/yuman.git`
-
-* Run with Add-on SDK
+* Clone this project
 
   ```sh
-  $ cd yuman
-  $ cfx run
+  git clone git@github.com:seiyugi/yuman.git
   ```
 
-### Create Install Package in xpi Format
+* Testing out your extension
 
   ```sh
-  $ cfx xpi
+  cd yuman
+  web-ext run
   ```
 
-  You'll get a file named `yuman.xpi`. Drag it into Firefox to install it.
+* Package your extension
 
-### Collect pictures from https://unsplash.com/
-  If you want to contribute your amazing pictures to yuman, please contact us debuguy@debuguy.org.
+  ```sh
+  web-ext build
+  ```
+
+### Contributing
+  If you want to contribute your awesome photos to Yuman, please contact us via debuguy@debuguy.org.
+
+### Acknowledgment
+  Randomly picking awesome photos from [Unsplash Source](https://source.unsplash.com)
