@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+}
+
+.root {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.background {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.75;
+  filter: blur(3px);
+  position: absolute;
+  background-size: cover;
+  background-color: rgba(230,230,230,0.7);
+}
+
+.background.loaded {
+  opacity: 1;
+  filter: blur(0);
+  transition: filter .2s .1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity .3s .1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
