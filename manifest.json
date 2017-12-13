@@ -9,6 +9,12 @@
     "64": "icons/icon64.png",
     "96": "icons/icon96.png"
   },
+  "permissions": [
+    "storage"
+  ],
+  "options_ui": {
+    "page": "preferences.html"
+  },
   "chrome_url_overrides": {
     "newtab": "index.html"
   }

@@ -10,9 +10,9 @@ class NewTab {
 
   getBackgroundImage({
     endpoint = 'https://source.unsplash.com/random',
-    query = 'nature,water'
+    searchKeyword = 'nature,water,cat'
   } = {}) {
-    let request = new Request(`${endpoint}/?${query}`);
+    let request = new Request(`${endpoint}/?${searchKeyword}`);
     return fetch(request, { mode: 'cors', cache: 'default' })
       .then((resp) => {
         return { imageUrl: resp.url };
@@ -24,9 +24,18 @@ class NewTab {
   }
 
   async updateBackgroundImage() {
-    let { imageUrl } = await this.getBackgroundImage();
+    let { searchKeyword } = await this.getPreference();
+    let { imageUrl } = await this.getBackgroundImage({ searchKeyword });
     this.element.background.classList.add('loaded');
     this.element.background.style.backgroundImage = `url('${imageUrl}')`;
+  }
+
+  getPreference() {
+    return new Promise((resolve, reject) => {
+      chrome.storage.local.get((result) => {
+        resolve(result);
+      });
+    });
   }
 }
 
