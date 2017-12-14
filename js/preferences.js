@@ -1,5 +1,6 @@
 class Preferences {
   static saveOptions(event) {
+    document.querySelector('.saveStatus').classList.add('show');
     chrome.storage.local.get((result) => {
       Object.keys(result).filter((key) => {
         return key.endsWith('yuman-prefetch-v1');
@@ -9,6 +10,10 @@ class Preferences {
     });
     chrome.storage.local.set({
       searchKeyword: document.querySelector('#search-keyword').value
+    }, () => {
+      window.setTimeout(() => {
+        document.querySelector('.saveStatus').classList.remove('show');
+      }, 1000);
     });
   }
 

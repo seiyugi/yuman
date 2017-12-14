@@ -64,7 +64,6 @@ class NewTab {
     let searchKeyword = await this.getSearchKeyword();
     let queryParameters = [
       'count=15',
-      'featured=true',
       `query=${searchKeyword}`
     ].join('&');
     let apiEndpoint = 'https://api.unsplash.com/photos/random';
