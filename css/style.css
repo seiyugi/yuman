@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: 'Lato', sans-serif;
 }
 
 .root {
@@ -17,12 +18,32 @@ body {
   filter: blur(3px);
   position: absolute;
   background-size: cover;
+  background-position: center;
   background-color: rgba(230,230,230,0.7);
 }
 
 .background.loaded {
   opacity: 1;
   filter: blur(0);
-  transition: filter .2s .1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              opacity .3s .1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: filter .1s .1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity .2s .1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.background-info {
+  left: 20px;
+  bottom: 20px;
+  width: 200px;
+  line-height: 30px;
+  font-size: 0.8rem;
+  color: #aaaaaa;
+  position: absolute;
+}
+
+.background-info-link,
+.background-info-link:link,
+.background-info-link:visited,
+.background-info-link:hover,
+.background-info-link:active {
+  color: #cccccc;
+  text-decoration-line: none;
 }
