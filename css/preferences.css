@@ -1,34 +1,50 @@
+:root {
+    --mdc-theme-primary: #455a64;
+    --mdc-theme-primary-dark: #1c313a;
+    --mdc-theme-primary-light: #718792;
+    --mdc-theme-secondary: #00BCD4;
+    --mdc-theme-secondary-dark: #008ba3;
+    --mdc-theme-secondary-light: #62efff;
+    --mdc-theme--text-primary-on-primary: #ffffff;
+    --mdc-theme--text-primary-on-secondary: #000000;
+}
+
 .root {
+    min-width: 600px;
+    -webkit-font-smoothing: antialiased;
+    font-family: Roboto,sans-serif;
+    font-weight: 400;
     font-size: 14px;
 }
 
-input[type=text] {
-    border: 1px solid #232A30;
-    border-radius: 3px;
-    color: #3A4045;
-    height: 24px;
-    line-height: 24px;
-    outline: none;
-    padding: 0 7px;
-    text-shadow: none;
-    width: 152px;
+.grid__inner--row {
+    grid-auto-rows: minmax(40px, auto);
 }
 
-.button {
-    border: 1px solid #209BC9;
-    border-radius: 3px;
-    color: #209BC9;
-    cursor: pointer;
-    display: inline-block;
-    line-height: 24px;
-    margin-top: 10px;
-    padding: 0 10px;
-    text-shadow: none;
-    background: none;
+.grid__cell--align-center {
+    align-self: center;
+}
+
+.grid__cell--text-align-end {
+    text-align: end;
+}
+
+.mdc-text-field input {
+    padding: 0 4px;
+    margin-left: 10px;
+}
+
+.radio-orientation-label {
+    padding-right: 12px;
+}
+
+.save {
+    line-height: 2;
+    padding: 16px 8px;
 }
 
 .saveStatus {
-    background-color: #dff0d8;
+    background-color: var(--mdc-theme-secondary-light, #dff0d8);
     margin-left: 10px;
     padding: 3px 5px;
     display: none;

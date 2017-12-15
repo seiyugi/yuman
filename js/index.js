@@ -61,10 +61,11 @@ class NewTab {
     ],
     cid = '797b6d75b81b6d17621bb0fad6c03db647182457de78e063e33806a5b273ce35',
   } = {}) {
-    let searchKeyword = await this.getSearchKeyword();
+    let { searchKeyword, searchOrientation } = await this.getSearchPreference();
     let queryParameters = [
       'count=15',
-      `query=${searchKeyword}`
+      `query=${searchKeyword}`,
+      `orientation=${searchOrientation}`,
     ].join('&');
     let apiEndpoint = 'https://api.unsplash.com/photos/random';
     let request = new Request(`${apiEndpoint}/?${queryParameters}`);
@@ -118,16 +119,15 @@ class NewTab {
     });
   }
 
-  getSearchKeyword() {
+  getSearchPreference() {
     return new Promise((resolve, reject) => {
-      chrome.storage.local.get('searchKeyword', (result) => {
-        if (result.searchKeyword) {
-          resolve(result.searchKeyword)
-        } else {
-          let defaultSearchKeyword = 'nature,water,cat';
-          chrome.storage.local.set({ searchKeyword: defaultSearchKeyword });
-          resolve(defaultSearchKeyword);
-        }
+      chrome.storage.local.get(['searchKeyword', 'searchOrientation'], (result) => {
+        let searchKeyword = result.searchKeyword || 'nature,water,cat';
+        let searchOrientation = result.searchOrientation || 'landscape';
+
+        !result.searchKeyword && chrome.storage.local.set({ searchKeyword });
+        !result.searchOrientation && chrome.storage.local.set({ searchOrientation });
+        resolve({ searchKeyword, searchOrientation });
       });
     });
   }
