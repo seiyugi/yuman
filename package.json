@@ -1,11 +1,21 @@
 {
-  "name": "Yuman",
+  "name": "yuman",
   "title": "Yuman",
+  "version": "2.0.4",
   "id": "jid1-swAiMEFwLPmaAQ",
   "description": "Yuman collects high-resolution photos from 'unsplash.com' and makes your new tabs more beautiful.",
+  "scripts": {
+    "build": "web-ext build --overwrite-dest"
+  },
   "author": "seiyugi",
   "email": "debuguy@debuguy.org",
-  "license": "MPL 2.0",
-  "version": "2.0.2.2",
-  "icon": "icons/icon64.png"
+  "license": "MPL-2.0",
+  "homepage": "https://github.com/seiyugi/yuman#readme",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/seiyugi/yuman.git"
+  },
+  "devDependencies": {
+    "web-ext": "^2.2.2"
+  }
 }
