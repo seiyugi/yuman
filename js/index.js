@@ -16,6 +16,7 @@ class NewTab {
     let dailyImages = await this.getDailyListing();
     let image = dailyImages[Math.floor(Math.random() * dailyImages.length)];
 
+    this.element.background.classList.add('zoom');
     this.element.background.classList.add('loaded');
     this.element.background.style.backgroundImage = `url('${image.urls.regular}')`;
     this.element.backgroundInfo.href = `${image.user.links.html}?utm_source=yuman_chrome_extension&utm_medium=referral`;
