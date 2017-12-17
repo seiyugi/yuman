@@ -5,7 +5,7 @@
   "id": "jid1-swAiMEFwLPmaAQ",
   "description": "Yuman collects high-resolution photos from 'unsplash.com' and makes your new tabs more beautiful.",
   "scripts": {
-    "build": "web-ext build --overwrite-dest"
+    "build": "web-ext build --ignore-files icons/icon128.png package*.json README.md --overwrite-dest"
   },
   "author": "seiyugi",
   "email": "debuguy@debuguy.org",
