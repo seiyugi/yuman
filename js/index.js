@@ -18,7 +18,7 @@ class NewTab {
 
     this.element.background.classList.add('loaded');
     this.element.background.style.backgroundImage = `url('${image.urls.regular}')`;
-    this.element.backgroundInfo.href = image.links.html;
+    this.element.backgroundInfo.href = `${image.user.links.html}?utm_source=yuman_chrome_extension&utm_medium=referral`;
     this.element.backgroundInfo.textContent = `${image.user.name} / Unsplash`;
     window.requestIdleCallback(this.prefetchListing, { timeout: 1000 });
   }
@@ -57,14 +57,13 @@ class NewTab {
 
   async fetchNewListing({
     fallbackData = [
-      { "id": "cWOzOnSoh6Q", "color": "#FADFC9", "urls": { "raw": "https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6", "full": "https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&s=e12a6a9d085f220f14e134d1353b77a2", "regular": "https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=59286c03c919f402f4c5119fdbae385b", "small": "https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&s=96212622ffb7186d14f65748393cd2f9", "thumb": "https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=27403b3f88e194bf108787a2a3d23164" }, "links": { "html": "https://unsplash.com/photos/cWOzOnSoh6Q", "download": "https://unsplash.com/photos/cWOzOnSoh6Q/download", "download_location": "api.unsplash.com/photos/cWOzOnSoh6Q/download" }, "user": { "name": "Pacto Visual" } }
+      { "id": "cWOzOnSoh6Q", "color": "#FADFC9", "urls": { "raw": "https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6", "full": "https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&s=e12a6a9d085f220f14e134d1353b77a2", "regular": "https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=59286c03c919f402f4c5119fdbae385b", "small": "https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&s=96212622ffb7186d14f65748393cd2f9", "thumb": "https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=27403b3f88e194bf108787a2a3d23164" }, "links": { "html": "https://unsplash.com/photos/cWOzOnSoh6Q", "download": "https://unsplash.com/photos/cWOzOnSoh6Q/download", "download_location": "api.unsplash.com/photos/cWOzOnSoh6Q/download" }, "user": { "links": { "html": "https://unsplash.com/@pactovisual" }, "name": "Pacto Visual" } }
     ],
     cid = '797b6d75b81b6d17621bb0fad6c03db647182457de78e063e33806a5b273ce35',
   } = {}) {
     let searchKeyword = await this.getSearchKeyword();
     let queryParameters = [
       'count=15',
-      'featured=true',
       `query=${searchKeyword}`
     ].join('&');
     let apiEndpoint = 'https://api.unsplash.com/photos/random';
