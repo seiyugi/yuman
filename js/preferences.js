@@ -1,5 +1,5 @@
 class Preferences {
-  static saveOptions(event) {
+  static savePreferences(event) {
     document.querySelector('.saveStatus').classList.add('show');
     chrome.storage.local.get((result) => {
       Object.keys(result).filter((key) => {
@@ -9,7 +9,8 @@ class Preferences {
       });
     });
     chrome.storage.local.set({
-      searchKeyword: document.querySelector('#search-keyword').value
+      searchKeyword: document.querySelector('#search-keyword').value,
+      searchOrientation: document.querySelector('input[name="radio-orientation"]:checked').value
     }, () => {
       window.setTimeout(() => {
         document.querySelector('.saveStatus').classList.remove('show');
@@ -17,8 +18,8 @@ class Preferences {
     });
   }
 
-  static loadOptions() {
-    chrome.storage.local.get('searchKeyword', (result) => {
+  static loadPreferences() {
+    chrome.storage.local.get(['searchKeyword', 'searchOrientation'], (result) => {
       if (result.searchKeyword) {
         document.querySelector('#search-keyword').value = result.searchKeyword;
       } else {
@@ -26,9 +27,17 @@ class Preferences {
         chrome.storage.local.set({ searchKeyword: defaultSearchKeyword });
         document.querySelector('#search-keyword').value = defaultSearchKeyword;
       }
+
+      if (result.searchOrientation) {
+        document.querySelector(`#radio-orientation-${result.searchOrientation}`).checked = true;
+      } else {
+        let defaultSearchOrientation = 'landscape';
+        chrome.storage.local.set({ searchOrientation: defaultSearchOrientation });
+        document.querySelector(`#radio-orientation-${defaultSearchOrientation}`).checked = true;
+      }
     });
   }
 }
 
-document.addEventListener('DOMContentLoaded', Preferences.loadOptions);
-document.querySelector('#saveOptions').addEventListener('click', Preferences.saveOptions);
+document.addEventListener('DOMContentLoaded', Preferences.loadPreferences);
+document.querySelector('#savePreferences').addEventListener('click', Preferences.savePreferences);

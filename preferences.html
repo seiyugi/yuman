@@ -3,15 +3,62 @@
 
 <head>
   <title>Preferences</title>
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
   <link href="css/preferences.css" rel="stylesheet">
 </head>
 
 <body>
   <div class="root">
-    <label>Image topics: <input type="text" id="search-keyword" /></label>
-    <br />
-    <a id="saveOptions" class="button">Save</a>
-    <span class="saveStatus">Options saved.</span>
+    <div class="mdc-layout-grid">
+      <div class="mdc-layout-grid__inner grid__inner--row">
+        <div class="mdc-text-field mdc-layout-grid__cell mdc-layout-grid__cell--span-2 grid__cell--align-center grid__cell--text-align-end">
+          <label for="search-keyword">Image categories: </label>
+        </div>
+        <div class="mdc-text-field mdc-layout-grid__cell grid__cell--align-center">
+          <input type="text" id="search-keyword" class="mdc-text-field__input" placeholder="nature,water,cat">
+          <div class="mdc-text-field__bottom-line"></div>
+        </div>
+      </div>
+
+      <div class="mdc-layout-grid__inner grid__inner--row">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 grid__cell--align-center grid__cell--text-align-end">
+          <label for="search-keyword">Image orientation: </label>
+        </div>
+        <div class="mdc-layout-grid__cell grid__cell--align-center">
+          <div class="mdc-form-field">
+            <div class="mdc-radio">
+              <input class="mdc-radio__native-control" type="radio" value="landscape" id="radio-orientation-landscape" name="radio-orientation"
+                checked>
+              <div class="mdc-radio__background">
+                <div class="mdc-radio__outer-circle"></div>
+                <div class="mdc-radio__inner-circle"></div>
+              </div>
+            </div>
+            <label class="radio-orientation-label" for="radio-orientation-landscape">Landscape</label>
+
+            <div class="mdc-radio">
+              <input class="mdc-radio__native-control" type="radio" value="portrait" id="radio-orientation-portrait" name="radio-orientation">
+              <div class="mdc-radio__background">
+                <div class="mdc-radio__outer-circle"></div>
+                <div class="mdc-radio__inner-circle"></div>
+              </div>
+            </div>
+            <label class="radio-orientation-label" for="radio-orientation-portrait">Portrait</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="mdc-layout-grid__inner grid__inner--row">
+        <div class="mdc-layout-grid__cell grid__cell--align-center">
+          <div class="save">
+            <button id="savePreferences" type="button" class="mdc-button mdc-button--raised">
+              Save
+            </button>
+            <span class="saveStatus">Preferences saved.</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <script defer src="js/preferences.js"></script>
 </body>
