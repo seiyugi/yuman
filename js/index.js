@@ -14,9 +14,10 @@ class NewTab {
 
   async updateBackgroundImage() {
     let dailyImages = await this.getDailyListing();
+    let imageMotion = await this.getMotionPreference();
     let image = dailyImages[Math.floor(Math.random() * dailyImages.length)];
 
-    this.element.background.classList.add('zoom');
+    imageMotion && this.element.background.classList.add('zoom');
     this.element.background.classList.add('loaded');
     this.element.background.style.backgroundImage = `url('${image.urls.regular}')`;
     this.element.backgroundInfo.href = `${image.user.links.html}?utm_source=yuman_chrome_extension&utm_medium=referral`;
@@ -129,6 +130,17 @@ class NewTab {
         !result.searchKeyword && chrome.storage.local.set({ searchKeyword });
         !result.searchOrientation && chrome.storage.local.set({ searchOrientation });
         resolve({ searchKeyword, searchOrientation });
+      });
+    });
+  }
+
+  getMotionPreference() {
+    return new Promise((resolve, reject) => {
+      chrome.storage.local.get('imageMotion', (result) => {
+        let imageMotion = result.imageMotion || 'enable';
+
+        !result.imageMotion && chrome.storage.local.set({ imageMotion });
+        resolve(imageMotion === 'enable' ? true : false);
       });
     });
   }
