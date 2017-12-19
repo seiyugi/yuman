@@ -22,7 +22,7 @@
 
       <div class="mdc-layout-grid__inner grid__inner--row">
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 grid__cell--align-center grid__cell--text-align-end">
-          <label for="search-keyword">Image orientation: </label>
+          <label>Image orientation: </label>
         </div>
         <div class="mdc-layout-grid__cell grid__cell--align-center">
           <div class="mdc-form-field">
@@ -44,6 +44,34 @@
               </div>
             </div>
             <label class="radio-orientation-label" for="radio-orientation-portrait">Portrait</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="mdc-layout-grid__inner grid__inner--row">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 grid__cell--align-center grid__cell--text-align-end">
+          <label>Image motion: </label>
+        </div>
+        <div class="mdc-layout-grid__cell grid__cell--align-center">
+          <div class="mdc-form-field">
+            <div class="mdc-radio">
+              <input class="mdc-radio__native-control" type="radio" value="enable" id="radio-motion-enable" name="radio-motion"
+                checked>
+              <div class="mdc-radio__background">
+                <div class="mdc-radio__outer-circle"></div>
+                <div class="mdc-radio__inner-circle"></div>
+              </div>
+            </div>
+            <label class="radio-motion-label" for="radio-motion-enable">Enable</label>
+
+            <div class="mdc-radio">
+              <input class="mdc-radio__native-control" type="radio" value="disable" id="radio-motion-disable" name="radio-motion">
+              <div class="mdc-radio__background">
+                <div class="mdc-radio__outer-circle"></div>
+                <div class="mdc-radio__inner-circle"></div>
+              </div>
+            </div>
+            <label class="radio-motion-label" for="radio-motion-disable">Disable</label>
           </div>
         </div>
       </div>
