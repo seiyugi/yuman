@@ -19,7 +19,7 @@ class NewTab {
 
     imageMotion && this.element.background.classList.add('zoom');
     this.element.background.classList.add('loaded');
-    this.element.background.style.backgroundImage = `url('${image.urls.regular}')`;
+    this.element.background.style.backgroundImage = `url('${image.urls.custom}')`;
     this.element.backgroundInfo.href = `${image.user.links.html}?utm_source=yuman_chrome_extension&utm_medium=referral`;
     this.element.backgroundInfo.textContent = `${image.user.name} / Unsplash`;
     window.requestIdleCallback(this.prefetchListing, { timeout: 1000 });
@@ -64,8 +64,10 @@ class NewTab {
     cid = '797b6d75b81b6d17621bb0fad6c03db647182457de78e063e33806a5b273ce35',
   } = {}) {
     let { searchKeyword, searchOrientation } = await this.getSearchPreference();
+    let screenWidth = screen.width || 1080;
     let queryParameters = [
       'count=15',
+      `w=${screenWidth}`,
       `query=${searchKeyword}`,
       `orientation=${searchOrientation}`,
     ].join('&');
@@ -95,10 +97,10 @@ class NewTab {
       if (!daily || !daily.list || daily.prefetched.length >= daily.list.length) return;
       Promise.all(daily.list.map((item, index) => {
         if (daily.prefetched.includes(index)) return Promise.resolve();
-        return fetch(item.urls.regular)
+        return fetch(item.urls.custom)
           .then(prefetched.push(index))
           .catch((err) => {
-            console.error(`Error prefetching ${item.urls.regular}:`, err);
+            console.error(`Error prefetching ${item.urls.custom}:`, err);
           });
       })).then(() => {
         chrome.storage.local.set({
